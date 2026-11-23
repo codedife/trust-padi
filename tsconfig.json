@@ -15,7 +15,13 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
+<<<<<<< HEAD
+    "expo-env.d.ts"
+, "src/app/screens/OnboardingScreen.jsx"  ]
+}
+=======
     "expo-env.d.ts",
     "nativewind-env.d.ts"
   ]
 }
+>>>>>>> origin/main

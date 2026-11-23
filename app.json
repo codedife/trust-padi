@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "trustpandi",
-    "slug": "trustpandi",
+    "name": "trustpadi",
+    "slug": "trustpadi",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "trustpandi",
+    "scheme": "trustpadi",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"
@@ -29,11 +29,15 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "image": "./assets/images/new-splash.png",
+          "resizeMode": "cover"
         }
       ],
+<<<<<<< HEAD
+      "expo-web-browser"
+=======
       "expo-status-bar"
+>>>>>>> origin/main
     ],
     "experiments": {
       "typedRoutes": true,
