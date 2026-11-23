@@ -1,6 +1,7 @@
 import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router'; // <-- IMPORT ROUTER
 
 import { AnimatedIcon } from '@/components/animated-icon';
 import { HintRow } from '@/components/hint-row';
@@ -29,6 +30,8 @@ function getDevMenuHint() {
 }
 
 export default function HomeScreen() {
+  const router = useRouter(); // <-- INITIALIZE ROUTER
+
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
@@ -55,6 +58,27 @@ export default function HomeScreen() {
           />
         </ThemedView>
 
+        {/* --- TEST ROUTING BUTTONS --- */}
+        <ThemedView type="backgroundElement" style={[styles.stepContainer, { marginTop: 20, gap: 15 }]}>
+          <ThemedText type="title" style={{ fontSize: 18, textAlign: 'center' }}>Test Your Routes</ThemedText>
+          
+          <TouchableOpacity style={styles.testButton} onPress={() => router.push('/projects')}>
+            <ThemedText style={{ color: '#fff', fontWeight: 'bold' }}>Test Projects Screen</ThemedText>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.testButton} onPress={() => router.push('/profile')}>
+            <ThemedText style={{ color: '#fff', fontWeight: 'bold' }}>Test Profile Screen</ThemedText>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.testButton} onPress={() => router.push('/notifications')}>
+            <ThemedText style={{ color: '#fff', fontWeight: 'bold' }}>Test Notifications</ThemedText>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={[styles.testButton, { backgroundColor: '#666' }]} onPress={() => router.push('/(auth)/signin')}>
+            <ThemedText style={{ color: '#fff', fontWeight: 'bold' }}>Test Sign In</ThemedText>
+          </TouchableOpacity>
+        </ThemedView>
+
         {Platform.OS === 'web' && <WebBadge />}
       </SafeAreaView>
     </ThemedView>
@@ -74,6 +98,7 @@ const styles = StyleSheet.create({
     gap: Spacing.three,
     paddingBottom: BottomTabInset + Spacing.three,
     maxWidth: MaxContentWidth,
+    justifyContent: 'center', // Added to center the new buttons
   },
   heroSection: {
     alignItems: 'center',
@@ -95,4 +120,11 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.four,
     borderRadius: Spacing.four,
   },
+  // Add style for the test buttons
+  testButton: {
+    backgroundColor: '#0A3678',
+    padding: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+  }
 });
