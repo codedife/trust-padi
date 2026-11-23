@@ -33,7 +33,11 @@
           "resizeMode": "cover"
         }
       ],
+<<<<<<< HEAD
       "expo-web-browser"
+=======
+      "expo-status-bar"
+>>>>>>> origin/main
     ],
     "experiments": {
       "typedRoutes": true,
