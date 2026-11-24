@@ -1,50 +1,41 @@
-
-import { Tabs } from "expo-router";
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Tabs } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function TabsLayout() {
   return (
-    <Tabs screenOptions={{
-      headerShown: false,
-      tabBarActiveTintColor: "#0B4A99",
-      tabBarInactiveTintColor: "#94A3B8",
-    }}>
-      <Tabs.Screen
-        name="home"
+    <Tabs screenOptions={{ headerShown: false, tabBarActiveTintColor: '#0A3678' }}>
+      
+      {/* If you want to use home.tsx, point the name to "home" */}
+      <Tabs.Screen 
+        name="home" 
         options={{
-          title: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" size={size} color={color} />
-          ),
-        }}
+          title: 'Home',
+          tabBarIcon: ({ color }) => <Ionicons name="home" size={24} color={color} />,
+        }} 
+      />
+      
+      <Tabs.Screen 
+        name="report-scam" 
+        options={{
+          title: 'Report scam',
+          tabBarIcon: ({ color }) => <Ionicons name="shield-alert" size={24} color={color} />,
+        }} 
+      />
+      
+      <Tabs.Screen 
+        name="escrow" 
+        options={{
+          title: 'Escrow',
+          tabBarIcon: ({ color }) => <Ionicons name="shield-checkmark" size={24} color={color} />,
+        }} 
       />
 
-      <Tabs.Screen
-        name="report-scam"
+      {/* Hide index from the tab bar if you are using home.tsx instead */}
+      <Tabs.Screen 
+        name="index" 
         options={{
-          title: "Report Scam",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="shield-alert-outline"
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="escrow"
-        options={{
-          title: "Escrow",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="shield-check-outline"
-              size={size}
-              color={color}
-            />
-          ),
-        }}
+          href: null, // This hides it from the bottom tabs
+        }} 
       />
     </Tabs>
   );

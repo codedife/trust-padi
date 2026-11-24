@@ -8,7 +8,6 @@ import {
   StatusBar,
   KeyboardAvoidingView,
   Platform,
-  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -22,19 +21,9 @@ export default function SignInScreen() {
   const [password, setPassword] = useState('');
 
   const handleSignIn = () => {
-    if (!email.trim() || !password.trim()) {
-      Alert.alert('Missing fields', 'Please enter your email and password.');
-      return;
-    }
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email.trim())) {
-      Alert.alert('Invalid email', 'Please enter a valid email address.');
-      return;
-    }
-
-    // Goes to the Tabs folder (assuming it's named (tabs) with parentheses)
-    router.replace('/(tabs)'); 
+    // Alert removed. Direct routing for testing.
+    // Note: Your folder is named "tabs" (no parentheses), so we use "/tabs"
+    router.replace('/tabs'); 
   };
 
   return (
@@ -46,7 +35,6 @@ export default function SignInScreen() {
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
         <View style={styles.content}>
-          {/* UPDATED: Back Button goes to /auth (the Onboarding index) */}
           <TouchableOpacity onPress={() => router.replace('/auth')} style={styles.backButton}>
             <Ionicons name="chevron-back" size={24} color="#292743" />
           </TouchableOpacity>
@@ -96,7 +84,6 @@ export default function SignInScreen() {
 
           <View style={styles.footer}>
             <Text style={styles.footerText}>Don't have an account? </Text>
-            {/* UPDATED: Sign up button goes to /auth/signup */}
             <TouchableOpacity onPress={() => router.push('/auth/signup')}>
               <Text style={styles.footerLink}>Sign up</Text>
             </TouchableOpacity>
