@@ -17,7 +17,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.codedife.trustpadi"
     },
     "web": {
       "output": "server",
@@ -30,18 +31,25 @@
         {
           "backgroundColor": "#208AEF",
           "image": "./assets/images/new-splash.png",
-          "resizeMode": "cover"
+          "imageWidth": 200, 
+          "resizeMode": "contain"
         }
       ],
-<<<<<<< HEAD
-      "expo-web-browser"
-=======
       "expo-status-bar"
->>>>>>> origin/main
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "17fc82fb-ff4d-4b86-a6c7-241ebc65078f"
+      }
     }
   }
 }
